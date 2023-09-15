@@ -9,4 +9,7 @@ Techstack :
 1. Ocelot API Gateway
 2. JWT Bearrer
 3. EFcore
+4. VS2022
+5. MsSql
+
 
