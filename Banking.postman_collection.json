@@ -1,0 +1,232 @@
+{
+	"info": {
+		"_postman_id": "01886038-bf46-4c18-9158-1541a4e01b73",
+		"name": "Banking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13562891"
+	},
+	"item": [
+		{
+			"name": "Gateway",
+			"item": [
+				{
+					"name": "Auth/Access",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "Mandiri_Access_5v46e8pfW41EHoANvvmI",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-MANDIRI-Key",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5117/auth/access",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5117",
+							"path": [
+								"auth",
+								"access"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Microservices",
+			"item": [
+				{
+					"name": "Master",
+					"item": [
+						{
+							"name": "auth/login",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWNjZXNzIiwianRpIjoiYTc1MjVmMTAtMjYxMi00YmVkLWI4NTktZTEyMzc1MWU0ODQ4IiwiZXhwIjoxNjk0NjAxNzM5LCJpc3MiOiJhY2Nlc3NJc3N1ZXIiLCJhdWQiOiJhY2Nlc3NBdWRpZW5jZSJ9.p7H22446jxDmo2oaqovGenRCrTHuuNoeBmBusTD1RTU",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"UserID\": null,\r\n    \"Origins\": {\r\n        \"Source\": \"Web\",\r\n        \"Version\": \"wFJiCmwoWwywflUnHYIL\"\r\n    },\r\n    \"Value\": {\r\n        \"Username\": \"Selgem\",\r\n        \"Password\":\"1234\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5117/apimaster/wb/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5117",
+									"path": [
+										"apimaster",
+										"wb",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Transactional",
+					"item": [
+						{
+							"name": "transactional/InsertCustomer",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWNjZXNzIiwianRpIjoiMDcxNmU5Y2EtY2VlNy00NzU2LTlkY2UtZDQ4YzllYTIzNjI3IiwiZXhwIjoxNjk0NzY1NTcxLCJpc3MiOiJhY2Nlc3NJc3N1ZXIiLCJhdWQiOiJhY2Nlc3NBdWRpZW5jZSJ9.8ehm4mZ8fS5XQ2m0R-PIGiNj85dRZ22kFheeQH2auYs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Origins\": {\r\n        \"Source\": \"Web\",\r\n        \"Version\": \"wFJiCmwoWwywflUnHYIL\"\r\n    },\r\n    \"Value\": {\r\n        \"FirstName\": \"Anjar\",\r\n        \"RekeningNumber\": \"0213341312312\",\r\n        \"LastName\": \"Nugroho\",\r\n        \"PIN\": 0324,\r\n        \"NIK\": \"120347666000\",\r\n        \"Address\": \"Jl Cempaka,Jakarta Barat\",\r\n        \"PhoneNumber\": \"085887656841\",\r\n        \"ApproveBy\": \"Selgem\",\r\n        \"ID_Users\": 1\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5117/apiTransactional/wb/transactional/InsertCustomer",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5117",
+									"path": [
+										"apiTransactional",
+										"wb",
+										"transactional",
+										"InsertCustomer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "transactional/UpdateCustomer",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWNjZXNzIiwianRpIjoiMDcxNmU5Y2EtY2VlNy00NzU2LTlkY2UtZDQ4YzllYTIzNjI3IiwiZXhwIjoxNjk0NzY1NTcxLCJpc3MiOiJhY2Nlc3NJc3N1ZXIiLCJhdWQiOiJhY2Nlc3NBdWRpZW5jZSJ9.8ehm4mZ8fS5XQ2m0R-PIGiNj85dRZ22kFheeQH2auYs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"UserID\": null,\r\n    \"Origins\": {\r\n        \"Source\": \"Web\",\r\n        \"Version\": \"wFJiCmwoWwywflUnHYIL\"\r\n    },\r\n    \"Value\": {\r\n        \"Username\": \"Selgem\",\r\n        \"Password\":\"1234\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5117/transactional/InsertCustomer",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5117",
+									"path": [
+										"transactional",
+										"InsertCustomer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "transactional/DeleteCustomer",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWNjZXNzIiwianRpIjoiMDcxNmU5Y2EtY2VlNy00NzU2LTlkY2UtZDQ4YzllYTIzNjI3IiwiZXhwIjoxNjk0NzY1NTcxLCJpc3MiOiJhY2Nlc3NJc3N1ZXIiLCJhdWQiOiJhY2Nlc3NBdWRpZW5jZSJ9.8ehm4mZ8fS5XQ2m0R-PIGiNj85dRZ22kFheeQH2auYs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"UserID\": null,\r\n    \"Origins\": {\r\n        \"Source\": \"Web\",\r\n        \"Version\": \"wFJiCmwoWwywflUnHYIL\"\r\n    },\r\n    \"Value\": {\r\n        \"ID_Customer\": 2\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5117/apiTransactional/wb/transactional/DeleteCustomer",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5117",
+									"path": [
+										"apiTransactional",
+										"wb",
+										"transactional",
+										"DeleteCustomer"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
