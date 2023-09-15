@@ -1,0 +1,37 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/{version}/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5090
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "access_auth",
+        "AllowedScopes": []
+      },
+      "UpstreamPathTemplate": "/apiMaster/wb/{version}/{everything}",
+      "UpstreamHttpMethod": [ "Post", "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/{version}/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5088
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "access_auth",
+        "AllowedScopes": []
+      },
+      "UpstreamPathTemplate": "/apiTransactional/wb/{version}/{everything}",
+      "UpstreamHttpMethod": [ "Post", "Get" ]
+    }
+  ]
+}
+
