@@ -12,4 +12,5 @@ Techstack :
 4. VS2022
 5. MsSql
 
-
+Please see & read the documentation.
+An run multiple project on visual studio
